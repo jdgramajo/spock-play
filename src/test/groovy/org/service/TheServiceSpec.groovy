@@ -12,4 +12,14 @@ class TheServiceSpec extends Specification {
 			ts.slowMethod() == 3000
 	}
 
+	void "test the normal method"() {
+		expect:
+			ts.normalMethod() == 1000
+	}
+
+	void "test the fast method"() {
+		expect:
+			ts.fastMethod() == 0
+	}
+
 }
