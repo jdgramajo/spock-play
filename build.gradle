@@ -10,3 +10,18 @@ dependencies {
   testCompile 'org.slf4j:slf4j-api:1.7.5'
   testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
 }
+
+test {
+	// For classes
+	def intTestSingle = System.getProperty("intTest.single")
+	logger.lifecycle "intTestSingle: ${intTestSingle}"
+	if(intTestSingle) { systemProperty "intTest.single", intTestSingle}
+	// For groups
+	def groupName = System.getProperty("groupName")
+	logger.lifecycle "groupName: ${groupName}"
+	if(groupName) { systemProperty "groupName", groupName}
+	// For issue
+	def issue = System.getProperty("issue")
+	logger.lifecycle "issue: ${issue}"
+	if(issue) { systemProperty "issue", issue}
+}
