@@ -8,20 +8,20 @@ repositories {
 dependencies {
   compile 'org.codehaus.groovy:groovy-all:2.4.3'
   testCompile 'org.slf4j:slf4j-api:1.7.5'
-  testCompile 'org.spockframework:spock-core:0.7-groovy-2.0'
+  testCompile 'org.spockframework:spock-core:1.0-groovy-2.4'
 }
 
 test {
+
 	// For classes
 	def intTestSingle = System.getProperty("intTest.single")
-	logger.lifecycle "intTestSingle: ${intTestSingle}"
 	if(intTestSingle) { systemProperty "intTest.single", intTestSingle}
+
 	// For groups
 	def groupName = System.getProperty("groupName")
-	logger.lifecycle "groupName: ${groupName}"
 	if(groupName) { systemProperty "groupName", groupName}
-	// For issue
+
+	// For issues
 	def issue = System.getProperty("issue")
-	logger.lifecycle "issue: ${issue}"
 	if(issue) { systemProperty "issue", issue}
 }
